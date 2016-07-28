@@ -1,0 +1,24 @@
+
+
+# src/OC/PlatformBundle/Resources/config/routing.yml
+
+# src/OC/PlatformBundle/Resources/config/routing.yml
+
+oc_platform_viewAnimal:
+    path :    /animaux/viewAnimal
+    defaults:
+        _controller:  OCPlatformBundle:Animal:viewAnimal
+oc_platform_addAnimal:
+    path :    /animaux/addAnimal
+    defaults:
+        _controller:  OCPlatformBundle:Animal:addAnimal
+oc_platform_editAnimal:
+    path :    /animaux/edit/{nom}
+    defaults:
+        _controller:  OCPlatformBundle:Animal:edit
+oc_platform_deleteAnimal:
+    path :    /animaux/delete/{nom}
+    defaults:
+        _controller:  OCPlatformBundle:Animal:delete
+
+

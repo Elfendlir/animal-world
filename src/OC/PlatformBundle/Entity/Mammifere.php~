@@ -1,0 +1,19 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use OC\PlatformBundle\Entity\Animal;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="oc_animal_mammifere")
+ */
+class Mammifere extends Animal
+{
+	/**
+	* @ORM\Column(name="scale", type="string", length=255)
+	*/
+	private $fur;
+}

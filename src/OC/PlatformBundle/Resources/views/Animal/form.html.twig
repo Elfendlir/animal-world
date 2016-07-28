@@ -1,0 +1,39 @@
+{# src/OC/PlatformBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "OCPlatformBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+{% block body %}
+
+	{% if formMam is defined%}
+		<h3>Formulaire d'ajout d'animal</h3>
+	{% else %}
+		<h3>Formulaire d'edition d'animal</h3>
+	{% endif %}
+	<div class="well">
+		{% if formMam is defined%}
+			<h4>Reptile</h4>
+		{% endif %}
+		
+		<div class="well">
+			{{ form(form) }}
+		</div>
+ 
+		{% if formMam is defined%}
+			<h4>Mammifere</h4>
+			<div class="well">
+				{{ form(formMam) }}
+			</div>
+		{% endif %}
+  
+  
+		{% if formOis is defined%}
+			<h4>Oiseau</h4>
+			<div class="well">
+				{{ form(formOis) }}
+			</div>
+		{% endif %}
+  
+
+	</div>
+{% endblock %}

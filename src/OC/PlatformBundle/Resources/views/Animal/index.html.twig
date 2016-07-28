@@ -1,0 +1,51 @@
+{# src/OC/PlatformBundle/Resources/views/Advert/index.html.twig #}
+{% extends "OCPlatformBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block body %}
+
+<div class="well">
+	<div>
+		<a href="{{ path('oc_platform_addAnimal') }}" class="btn btn-default">  <i class="glyphicon glyphicon-chevron-right"></i>
+      Ajouter
+    </a>
+	</div>
+	</br>
+	<table class="table">
+	<tr>
+		<th>Nom</th>
+		<th>Description</th>
+		<th>Editer/Supprimer</th>
+	</tr>
+		{% for animal in TabAnimaux %}
+			
+			{% set supprUrl = path('oc_platform_deleteAnimal', {'nom' : animal.nom} ) %}
+			{% set editUrl = path('oc_platform_editAnimal', {'nom' : animal.nom} ) %}
+			{% if animal.fur is defined %}
+				{% set colorCol = "background-color :  rgb(153, 204, 255);" %}
+				{% set animalProp = animal.growl %}
+			{% endif %}
+			{% if animal.scale is defined%}
+				{% set colorCol = 'background-color : rgb(204, 255, 153);' %}
+				{% set animalProp = animal.hiss %}
+			{% endif %}
+			{% if animal.feathers is defined%}
+				{% set colorCol = 'background-color : rgb(255, 153, 153);' %}
+				{% set animalProp = animal.tweet %}
+			{% endif %}
+			<tr style="{{colorCol}}">
+					<td>{{animal.nom}}</td>
+					<td>{{animalProp}}</td>
+					<td><a href="{{ editUrl }}" class="btn btn-success">Editer</a> <a href="{{ supprUrl }}" class="btn btn-danger">Supprimer</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+	
+	<div>
+		<a href="{{ path('oc_platform_addAnimal') }}" class="btn btn-default">  <i class="glyphicon glyphicon-chevron-right"></i>
+      Ajouter
+    </a>
+</div>
+{% endblock %}
+
+
